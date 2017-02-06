@@ -1,0 +1,26 @@
+
+{% extends './layout.html' %}
+{% block content %}
+<h1>All Categories</h1>
+<p>
+    <form class='well' method='POST' action='/categories/{{category.id}}/products'>
+        <input name='name' class='form-control' placeholder="add a product"/ >
+         <button type='add' class'btn btn-primary'>Save</button>
+    </form> 
+
+    <ul class = 'list-group'>
+    {% for product in category.products %}
+    <li class = 'list-group-item'>
+        {{ product.name }}
+      <div class = 'pull-right'>
+      <form style = 'display: inline' action='/categories/{{ category.id }}/products/{{ prod.id }}?_method=DELETE' method = 'POST'>
+        <button class = 'btn btn-warning'>
+          <span class='glyphicon glyphicon-trash'></span>
+          Delete
+        </button>
+      </form>
+      </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

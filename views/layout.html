@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='/vendor/bootstrap/dist/css/bootstrap.css' />
+  </head>
+  <body>
+    <div class='container'>
+      <ul class='nav nav-tabs'>
+        <li {% if nav == 'home' %} class='active' {% endif %} ><a href='/'>Home</a></li>
+        <li {% if nav == 'cats' %} class='active' {% endif %} ><a href='/categories'>Categories</a></li>
+      </ul>
+      <div class='row'>
+    <div class='col-sm-6'>
+      {% block content %}
+      {% endblock %}
+      </div>
+      <div class='col-sm-6'>
+           <h2>Data:</h1>
+        <pre> 
+            {%for category in categories%}
+            <li>{{category|json}}</li>
+            {%endfor%}       
+  </pre>
+    </div>
+  </body>

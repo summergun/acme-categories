@@ -20,9 +20,9 @@ module.exports = {
     getCategories,
     getCategory,
     insertCategory,
-    // deleteCategory:deleteCategory,
+    deleteCategory,
      insertProduct,
-    // deleteProduct:deleteProduct
+    deleteProduct
 };
 
 // return the categoryProducts object
@@ -70,6 +70,15 @@ function insertProduct (categoryId,product){
     }
     category.products.push(newproduct);
     return id;
+}
+
+function deleteCategory (categoryId){
+  _categoryProducts = getCategories().filter( category => category.id !== id);
+};
+
+function deleteProduct (categoryId,id){
+    var category = getCategory(categoryId);
+    category.products = category.products.filter(product=>product.id!==id);
 }
 
 

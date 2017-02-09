@@ -35,6 +35,11 @@ router.post('/:id/products',(req,res,next)=>{
     res.redirect('/categories/'+id);
 })
 
+router.delete(':/id',(req,res,next)=>{
+    db.deleteCategory(req.params.id*1);
+    res.redirect('/categories');
+})
+
 
 
 

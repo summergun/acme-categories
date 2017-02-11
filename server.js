@@ -19,9 +19,9 @@ app.get('/',(req,res,next)=>{
     res.render('index',{title:'Home',categories:db.getCategories()});
 })
 
-app.use('/categories',require('./routes/categories'));
+app.use('/categories', require('./routes/categories'));
 
 
 app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);//use backticks
 });

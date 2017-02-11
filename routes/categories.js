@@ -3,7 +3,7 @@ const db = require('../db');
 module.exports = router;
 
 // router.use('/',(req,res,next)=>{
-//     res.categories = db.getCategories;
+//     res.categories = db.getCategories; i like this!!
 //     next();
 // });
 
@@ -16,7 +16,7 @@ router.get('/', (req, res)=> {
 router.get('/:id',(req,res,next)=>{
     var id=req.params.id*1;
     res.render('category',{ 
-        category:db.getCategory(id)
+        category: db.getCategory(id)
  });
 });
 
@@ -32,7 +32,7 @@ router.post('/:id/products',(req,res,next)=>{
     var product=req.body.name ;
     var categoryId = req.params.id*1;
     var id = db.insertProduct(categoryId,product);
-    res.redirect('/categories/'+id);
+    res.redirect('/categories/'+id);//use backticks
 })
 
 router.delete(':/id',(req,res,next)=>{

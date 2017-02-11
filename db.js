@@ -1,3 +1,5 @@
+//just call this _categories
+//formatting - this is hard to read.
 const _categoryProducts = [
 	{id:1,
     category:'Sports',
@@ -39,7 +41,7 @@ function getCategory(id){
 //return current's MaxId
 function getMaxId(arr){
     if(arr.length=0){
-        return 0;
+        return 0;//if you are returning do you need an else
     }
     else {
     return  arr.reduce(function(a,b){
@@ -65,8 +67,8 @@ function insertProduct (categoryId,product){
     console.log(category);
     var newproductId = getMaxId(category.products)+1;
     var newproduct = {
-        name:product,
-        id:newproductId
+        name: product,
+        id: newproductId
     }
     category.products.push(newproduct);
     return id;
